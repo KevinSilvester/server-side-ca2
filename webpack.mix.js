@@ -1,19 +1,18 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+const _ = require('lodash')
+const jsonfile = require('jsonfile')
 const path = require('path')
 const mix = require('laravel-mix')
-const tailwindcss = require('tailwindcss')
-const autoprefixer = require('autoprefixer')
-const cssnano = require('cssnano')
-
-const mode = process.env.NODE_ENV
-const dev = mode === 'development'
+const mixManifest = 'public/mix-manifest.json'
 
 mix.webpackConfig({
    entry: './resources/js/app.js',
    output: {
-      filename: 'js/[name].bundle.js',
-      path: path.resolve(__dirname, 'public')
+      filename: '[name]~[contenthash].js',
+      path: path.resolve(__dirname, 'public/dist'),
+      clean: true
    },
    plugins: [
       new BrowserSyncPlugin({
@@ -23,8 +22,9 @@ mix.webpackConfig({
          files: ['./**/*.php']
       }),
       new MiniCssExtractPlugin({
-         filename: 'css/main.css'
-      })
+         filename: '[name]~[contenthash].css',
+      }),
+      new WebpackManifestPlugin({ fileName: 'webpack-manifest.json' })
    ],
    module: {
       rules: [
@@ -69,6 +69,17 @@ mix.webpackConfig({
          }
       }
    }
+}).then(() => {
+   jsonfile.readFile(mixManifest, (err, obj) => {
+      const hashRegex = /\~(.+)\.(.+)$/g
+      const newJson = {}
+      for (const [key, value] of Object.entries(obj)) {
+         newJson[key.replace(hashRegex, '.$2')] = value
+      }
+      jsonfile.writeFile(mixManifest, newJson, { spaces: 3 }, err => {
+         if (err) console.error(err)
+      })
+   })
 })
 
 mix.options({
@@ -78,4 +89,4 @@ mix.options({
    }
 })
 
-mix.version()
+// mix.version()
