@@ -15,11 +15,12 @@ class CreateTasksTable extends Migration
    {
       Schema::create('tasks', function (Blueprint $table) {
          $table->engine = 'InnoDB';
-         $table->id('task_id');
-         $table->id('todo_id');
+         $table->id('task_id')->autoIncrement();
+         $table->unsignedBigInteger('todo_id');
          $table->string('name', 150);
          $table->enum('progress', ['todo', 'doing', 'done']);
          $table->foreign('todo_id')->references('todo_id')->on('todo_lists');
+         $table->timestamps();
       });
    }
 

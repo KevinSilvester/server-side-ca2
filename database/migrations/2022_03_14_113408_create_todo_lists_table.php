@@ -15,10 +15,11 @@ class CreateTodoListsTable extends Migration
    {
       Schema::create('todo_lists', function (Blueprint $table) {
          $table->engine = 'InnoDB';
-         $table->id('todo_id');
+         $table->id('todo_id')->autoIncrement();
          $table->string('name', 150);
          $table->string('banner', 150);
          $table->string('icon', 150);
+         $table->timestamps();
       });
    }
 

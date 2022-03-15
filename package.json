@@ -6,11 +6,17 @@
       "watch-poll": "mix watch -- --watch-options-poll=1000",
       "hot": "mix watch --hot",
       "build": "mix --production",
-      "clean": "rm -r public/dist"
+      "clean": "rm -r public/dist",
+      "check": "prettier --check \"./**/*.{js, json, scss}\"",
+      "format": "prettier --write \"./**/*.{js, json, scss}\"",
+      "check:blade": "blade-formatter --check-formatted resources/**/*.blade.php",
+      "format:blade": "blade-formatter --write resources/**/*.blade.php"
    },
    "devDependencies": {
       "@swc/core": "^1.2.154",
+      "@tailwindcss/forms": "^0.5.0",
       "autoprefixer": "^10.4.2",
+      "blade-formatter": "^1.21.3",
       "browser-sync": "^2.27.8",
       "browser-sync-webpack-plugin": "^2.3.0",
       "css-loader": "^6.7.1",

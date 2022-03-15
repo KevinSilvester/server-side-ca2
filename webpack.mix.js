@@ -22,7 +22,7 @@ mix.webpackConfig({
          files: ['./**/*.php']
       }),
       new MiniCssExtractPlugin({
-         filename: '[name]~[contenthash].css',
+         filename: '[name]~[contenthash].css'
       }),
       new WebpackManifestPlugin({ fileName: 'webpack-manifest.json' })
    ],
@@ -43,14 +43,7 @@ mix.webpackConfig({
                      importLoaders: 1
                   }
                },
-               {
-                  loader: 'postcss-loader',
-                  options: {
-                     postcssOptions: {
-                        config: path.resolve(__dirname, './postcss.config.js')
-                     }
-                  }
-               },
+               'postcss-loader',
                'sass-loader'
             ]
          }

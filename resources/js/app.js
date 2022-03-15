@@ -1,4 +1,4 @@
-import './bootstrap'
 import '../scss/app.scss'
+import axios from 'axios'
 
-console.log('hello world')
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'

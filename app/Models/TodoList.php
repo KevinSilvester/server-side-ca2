@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TodoList extends Model
 {
-    use HasFactory;
+   use HasFactory;
+   protected $primaryKey = 'todo_id';
 }

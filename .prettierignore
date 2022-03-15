@@ -1,0 +1,5 @@
+.*
+pnpm*
+npm*
+public/
+vendor/

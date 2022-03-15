@@ -1,36 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Laravel</title>
-   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-   @production
-   <link href="{{ '/public' . mix('dist/main.css') }}" rel="stylesheet">
-   <script defer src="{{  '/public' . mix('dist/main.js') }}"></script>
-   <script defer src="{{'/public' . mix('dist/runtime.js') }}"></script>
-   <script defer src="{{ '/public' . mix('dist/vendors.js') }}"></script>
-   @else
-   <link href="{{ 'dist' . mix('/main.css') }}" rel="stylesheet">
-   <script defer src="{{ 'dist' . mix('/main.js') }}"></script>
-   <script defer src="{{ 'dist' . mix('/runtime.js') }}"></script>
-   <script defer src="{{ 'dist' . mix('/vendors.js') }}"></script>
-   @endproduction
-
-</head>
-
-<body class="bg-blue-100">
-
-   <form method="post" action="{{ route('add-task') }}" accept-charset="UTF-8" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-      {{ csrf_field() }}
-      <input type="text" name="task" placeholder="task" />
-      <br>
-      <button class="grid place-items-center rounded-md w-fit h-fit p-2 bg-blue-300">
-         Save Task
-      </button>
-   </form>
-</body>
-
-</html>
+<x-layout title="Todo-Lists">
+   <body class="bg-custom-navy-600 font-nunito relative">
+      <div class="container mx-auto my-20 flex flex-col items-center">
+         <h1 class="text-custom-blue-200 text-5xl font-extrabold">Todo Lists</h1>
+         <div class="my-7 flex flex-col gap-3">
+            @if ($todoLists)
+               @foreach ($todoLists as $todoList)
+                  <x-box>{{ $todoList->name }}</x-box>
+               @endforeach
+            @else
+               <x-box>No Todos To Do</x-box>
+            @endif
+         </div>
+      </div>
+   </body>
+</x-layout>
