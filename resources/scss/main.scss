@@ -38,4 +38,22 @@
    --row-1: min-content auto;
 }
 
+@import './livewire';
 
+.grid-template {
+   grid-template-areas: 'todo doing done';
+}
+
+.grid-area {
+   &-todo {
+      grid-area: todo;
+   }
+
+   &-doing {
+      grid-area: doing;
+   }
+   
+   &-done {
+      grid-area: done;
+   }
+}

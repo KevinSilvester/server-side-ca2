@@ -19,7 +19,7 @@ class CreateTasksTable extends Migration
          $table->unsignedBigInteger('todo_id');
          $table->string('name', 150);
          $table->enum('progress', ['todo', 'doing', 'done']);
-         $table->foreign('todo_id')->references('todo_id')->on('todo_lists');
+         $table->foreign('todo_id')->references('todo_id')->on('todo_lists')->onDelete('cascade');
          $table->timestamps();
       });
    }

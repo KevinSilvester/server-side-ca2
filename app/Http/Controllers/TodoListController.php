@@ -21,8 +21,26 @@ class TodoListController extends Controller
    //    // return view('todo', ['tasks' => $tasks]);
    // }
 
-   public function getAllTodoLists() {
-      $todoLists = TodoList::orderBy('name')->get();
-      return view('index', ['todoLists' => $todoLists]);
+   private $tasksList;
+
+   public function __construct(TasksList $tasksList)
+   {
+      $this->tasksList = $tasksList;
+   }
+
+   public function index() {
+      return view('index')->with('todoLists', TodoList::orderBy('name')->get());
+   }
+
+   public function show($id)
+   {
+      $data = $this->tasksList->getTasks($id);
+
+      if (count($data['todo']) < 1){
+         return redirect('/');
+      }
+      else{
+         return view('todo.index')->with('data', $this->tasksList->getTasks($id));
+      }
    }
 }

@@ -23,7 +23,6 @@
       "cssnano": "^5.1.4",
       "jsonfile": "^6.1.0",
       "laravel-mix": "^6.0.43",
-      "lodash": "^4.17.21",
       "mini-css-extract-plugin": "^2.6.0",
       "postcss": "^8.4.8",
       "postcss-loader": "^6.2.1",
@@ -39,6 +38,7 @@
       "webpack-manifest-plugin": "^5.0.0"
    },
    "dependencies": {
+      "alpinejs": "^3.9.1",
       "axios": "^0.26.1"
    }
 }

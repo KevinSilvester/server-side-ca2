@@ -2,4 +2,5 @@
 pnpm*
 npm*
 public/
+resources/vendor/
 vendor/

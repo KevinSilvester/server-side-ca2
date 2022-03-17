@@ -1,14 +1,15 @@
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
-const _ = require('lodash')
 const jsonfile = require('jsonfile')
 const path = require('path')
 const mix = require('laravel-mix')
 const mixManifest = 'public/mix-manifest.json'
 
 mix.webpackConfig({
-   entry: './resources/js/app.js',
+   entry: {
+      main: ['./resources/js/main.js', './resources/scss/main.scss']
+   },
    output: {
       filename: '[name]~[contenthash].js',
       path: path.resolve(__dirname, 'public/dist'),

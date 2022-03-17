@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoListController;
+use Illuminate\Support\Facades\Redirect;
 
-Route::get('/', [TodoListController::class, 'getAllTodoLists']);
+Route::get('/', [TodoListController::class, 'index']);
 
 
-Route::post('/todo', [TaskController::class, 'addTask'])->name('add-task');
+Route::get('/todo/{id}', [TodoListController::class, 'show']);
 
 
 // Route::post('/add-task', [TaskController::class, 'addTask'])->name('add-task');
