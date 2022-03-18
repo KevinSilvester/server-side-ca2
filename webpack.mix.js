@@ -8,7 +8,7 @@ const mixManifest = 'public/mix-manifest.json'
 
 mix.webpackConfig({
    entry: {
-      main: ['./resources/js/main.js', './resources/scss/main.scss']
+      main: ['regenerator-runtime/runtime.js', './resources/js/main.js', './resources/scss/main.scss']
    },
    output: {
       filename: '[name]~[contenthash].js',
@@ -66,11 +66,11 @@ mix.webpackConfig({
 }).then(() => {
    jsonfile.readFile(mixManifest, (err, obj) => {
       const hashRegex = /\~(.+)\.(.+)$/g
-      const newJson = {}
+      const newManifest = {}
       for (const [key, value] of Object.entries(obj)) {
-         newJson[key.replace(hashRegex, '.$2')] = value
+         newManifest[key.replace(hashRegex, '.$2')] = value
       }
-      jsonfile.writeFile(mixManifest, newJson, { spaces: 3 }, err => {
+      jsonfile.writeFile(mixManifest, newManifest, { spaces: 3 }, err => {
          if (err) console.error(err)
       })
    })

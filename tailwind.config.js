@@ -1,11 +1,10 @@
 const forms = require('@tailwindcss/forms')
 
-const hsl =
-   variable =>
-   ({ opacityValue }) => {
-      if (!opacityValue) return `hsl(var(${variable}))`
-      return `hsl(var(${variable}) / ${opacityValue})`
-   }
+const hsl = variable => ({ opacityValue }) => {
+   if (!opacityValue) 
+      return `hsl(var(${variable}))`
+   return `hsl(var(${variable}) / ${opacityValue})`
+}
 
 module.exports = {
    content: ['./resources/**/*.blade.php', './resources/**/*.js'],
