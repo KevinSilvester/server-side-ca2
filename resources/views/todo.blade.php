@@ -1,5 +1,5 @@
 @php
-   $PATH = App::environment('production') ? 'public/uploads' : asset('uploads');
+   $PATH = App::environment('production') ? '/public/uploads' : asset('uploads');
    $todo = $data['todo'][0];
    $otherTodos = $data['otherTodos'];
    $tasks = $data['tasks'];
