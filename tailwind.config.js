@@ -44,21 +44,6 @@ module.exports = {
          },
          fontFamily: {
             nunito: ['Nunito', 'sans-serif']
-         },
-         gridTemplateColumns: {
-            'auto-1': 'var(--grid-auto-1)',
-            'auto-2': 'var(--grid-auto-2)'
-         },
-         boxShadow: {
-            'sm-blue': '0px 1px 2px 1px hsl(var(--navy-600) / 0.05)',
-            'md-img':
-               '0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color), 0 -1px 11px -3px var(--tw-shadow-color)',
-            button: '0 0 6px 2px var(--tw-shadow-color)',
-            error: `0 0 2px 1px rgb(239 68 68)`
-         },
-         backgroundImage: {
-            'blue-navy':
-               'linear-gradient(180deg, hsl(var(--navy-500) / 0.5) 0%, hsl(var(--navy-500) / 0.85) 73%)'
          }
       }
    },

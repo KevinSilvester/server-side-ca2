@@ -25,35 +25,6 @@
 
    --grey-100: 210 18% 31%;
    --grey-200: 206 25% 20%;
-
-   --skeleton-bg: hsl(var(--slate-50) / 1);
-   --skeleton-fg: hsl(var(--blue-100) / 0.1);
-
-   --col-1: auto 2.6rem 2.6rem;
-   --col-2: 0.76rem auto 0.76rem;
-   --col-3: repeat(3, minmax(100px, 1fr));
-   --col-4: repeat(auto-fill, minmax(150px, 1fr));
-   --col-5: repeat(auto-fill, 175px);
-   --col-6: repeat(auto-fill, 200px);
-   --row-1: min-content auto;
 }
 
-@import './livewire';
-
-.grid-template {
-   grid-template-areas: 'todo doing done';
-}
-
-.grid-area {
-   &-todo {
-      grid-area: todo;
-   }
-
-   &-doing {
-      grid-area: doing;
-   }
-   
-   &-done {
-      grid-area: done;
-   }
-}
+[x-cloak] { display: none !important; }

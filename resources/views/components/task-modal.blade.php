@@ -1,6 +1,6 @@
 <div 
    class="fixed top-0 left-0 h-screen w-screen backdrop-blur-sm grid bg-black/50 z-50 place-items-center"
-   x-show="open"
+   x-show="openTaskModal"
    x-transition.duration.200ms
    x-transition:enter.scale.100
    x-transition:leave.scale.100
@@ -8,13 +8,13 @@
 >
    <div
       class='w-[95vw] max-w-[500px] bg-custom-navy-600 relative p-6 md:p-7 rounded-lg drop-shadow-2xls shadow-2xl'
-      @click.away="open = false"
-      x-show="open"
+      @click.away="openTaskModal = false"
+      x-show="openTaskModal"
       x-transition.duration.200ms
    >
    <button 
       class="absolute top-2 right-2 w-10 h-10 grid place-items-center bg-custom-navy-300 group rounded-md duration-150"
-      @click="open = false"
+      @click="openTaskModal = false"
    >
       <svg 
          class="h-3/4 fill-custom-slate-300 group-hover:fill-custom-blue-200 group-focus:fill-custom-blue-200" xmlns="http://www.w3.org/2000/svg" 
@@ -25,7 +25,7 @@
    </button>
       <h2 id="modal-title" class='text-center text-2xl font-bold' x-text="title"></h2>
       <br />
-      <form id="modal-form" class="px-16" @submit.prevent="actions(mode)($event)">
+      <form id="modal-form" class="px-12" @submit.prevent="actions(mode)($event)">
          @csrf
          <div class="flex gap-4">
             <label for="modal-input" class="w-20 grid items-center justify-end font-extrabold">Task:</label>

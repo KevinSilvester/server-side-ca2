@@ -1,9 +1,6 @@
 @php
-   $PATH = '';
-   if (App::environment('production'))
-      $PATH = '/public/dist';
-   else 
-      $PATH = '/dist';
+   $PATH = App::environment('production') ? '/public/dist' : '/dist';
+   $ASSET_PATH = App::environment('production') ? '/public/uploads' : '/uploads'
 @endphp
 
 <!DOCTYPE html>
@@ -23,18 +20,14 @@
    <link rel="icon" type="image/x-icon" href="{{ $PATH }}/favicon.ico">
    <link href="{{ $PATH . mix('/main.css') }}" rel="stylesheet">
    <script>
-      window.Laravel = { csrf_token: '{{ csrf_token() }}' }
+      window.Laravel = { 
+         csrf_token: '{{ csrf_token() }}',
+         asset_path: '{{ $ASSET_PATH }}'
+      }
    </script>
-   {{-- <link href="{{ $PATH . mix('/modal.css') }}" rel="stylesheet"> --}}
-   {{-- @livewireStyles --}}
-   {{-- <link href="{{ $PATH . mix('/livewire.css') }}" rel="stylesheet"> --}}
 </head>
 <body class="bg-custom-navy-600 text-custom-slate-300 font-nunito" x-data="modal">
    {{ $slot }}
-   {{-- @livewireScripts --}}
-   {{-- @livewire('livewire-ui-modal') --}}
-   {{-- <script src="{{ $PATH . mix('/livewire.js') }}"></script> --}}
-   {{-- <script src="{{ $PATH . mix('/modal.js') }}"></script> --}}
    <script src="{{ $PATH . mix('/vendors.js') }}"></script>
    <script src="{{ $PATH . mix('/runtime.js') }}"></script>
    <script src="{{ $PATH . mix('/mix.js') }}"></script>
