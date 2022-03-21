@@ -117,7 +117,7 @@ CREATE TABLE `todo_lists` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`todo_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `todo_lists` (
 
 LOCK TABLES `todo_lists` WRITE;
 /*!40000 ALTER TABLE `todo_lists` DISABLE KEYS */;
-INSERT INTO `todo_lists` VALUES (11,'List 1','banners/6y8tyWW1LmeoiIR12YUVgc7kUagH9JDWzyuz1U9B.jpg','icons/7pIZl9tRPOvXNvVv2drVXKxIpzOk0BIshpsZFZOt.jpg','2022-03-19 16:41:06','2022-03-19 16:46:03'),(12,'List 2','banners/Tm4dhvbHYIPN0r2hPvWwvsMCCvqhEDDzgC9fV7GT.jpg','icons/dIeVigmVznXPY0zGI3jT7MmWTN5meQhwK2jayjjp.jpg','2022-03-19 16:45:44','2022-03-19 16:45:44'),(14,'List 3','banners/b0MtVVLn0lafdqihmbTkkSNlMjFn1PhDKdr39AeZ.jpg','icons/5kuUqJ3bZ87PbyVW67xJMc16NDDociRhLUavEM7L.jpg','2022-03-19 17:36:39','2022-03-19 17:36:39');
+INSERT INTO `todo_lists` VALUES (11,'List 1','banners/6y8tyWW1LmeoiIR12YUVgc7kUagH9JDWzyuz1U9B.jpg','icons/7pIZl9tRPOvXNvVv2drVXKxIpzOk0BIshpsZFZOt.jpg','2022-03-19 16:41:06','2022-03-19 16:46:03'),(12,'List 2','banners/Tm4dhvbHYIPN0r2hPvWwvsMCCvqhEDDzgC9fV7GT.jpg','icons/dIeVigmVznXPY0zGI3jT7MmWTN5meQhwK2jayjjp.jpg','2022-03-19 16:45:44','2022-03-19 16:45:44'),(14,'List 3','banners/b0MtVVLn0lafdqihmbTkkSNlMjFn1PhDKdr39AeZ.jpg','icons/5kuUqJ3bZ87PbyVW67xJMc16NDDociRhLUavEM7L.jpg','2022-03-19 17:36:39','2022-03-19 17:36:39'),(15,'List 4','banners/a2ayb8V0KwBpiFMjpKjav76cYPmkqjfpaLihSKQC.jpg','icons/vUL7Sqg6EinZhpt3FOaXHU2Ap6oLzUmcF9Bw1szu.jpg','2022-03-19 18:19:34','2022-03-19 18:22:55');
 /*!40000 ALTER TABLE `todo_lists` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -139,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-19 18:00:57
+-- Dump completed on 2022-03-19 18:31:52
